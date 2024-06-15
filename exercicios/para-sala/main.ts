@@ -9,18 +9,23 @@ console.log("rodando");
 
 
 const produto = new Produto("Regata", 100, "descricao regata M")
-const produtoObj: ProdutoInterface = {
-    nome: "produto obj",
-    descricao: "",
-    preco: 0,
-    tipo: ProdutoTipoEnum.DIGITAL
-}
 
 const produtoDigital = new ProdutoDigital("Codigo Limpo", 90.88, "Abordando as complexidades de um software")
-const regataRosa = new ProdutoVariante('Regata', 10.00, 'modelo primavera verão', 'rosa')
+const regataRosa = new Produto('Regata', 15, 'com encapsulamento')
+const subRegataRosa = new ProdutoVariante('Regata', 110, 'modelo privavera-verao', 'rosa')
 
 const display = (...produtos: ProdutoInterface[]): void => {
-    console.table(produtos)
+    const carrinhoProdutos = produtos.map((produto) => {
+        return {
+            nome: produto.nome,
+            preco: produto.preco,
+            descricao: produto.descricao,
+            estaDisponivel: produto.estaDisponivel()
+        }
+    })
+
+    console.table(carrinhoProdutos)
+
 }
 
-display(produto, produtoObj, produtoDigital, regataRosa)
+display(produto, produtoDigital, regataRosa, subRegataRosa)
