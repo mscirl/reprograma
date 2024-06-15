@@ -1,10 +1,8 @@
-# Exercício de Sala 🏫  
-
-## Nome do Exercicio
-
 - Explicação do exercício: 
-[CONTEUDO]
----
+1. criar uma pasta para colocar todos os arquivos relacionados
+2. somente para essa aula, rodar no terminal npm i -g ts-node
+
+
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
 
