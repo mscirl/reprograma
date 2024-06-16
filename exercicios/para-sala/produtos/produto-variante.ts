@@ -7,13 +7,11 @@ export class ProdutoVariante extends Produto {
         public nome: string,
         public preco: number,
         protected _descricao: string,
-        public cor: string
+        public cor: string,
+        protected quantidade
 ) {
-    super(nome, preco, _descricao)
-    }
-
-    get descricao(): string {
-        return "morango da variante"
+    super(nome, preco, _descricao, quantidade)
     }
 
 }
+

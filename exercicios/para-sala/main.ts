@@ -5,14 +5,24 @@ import { ProdutoDigital } from './produtos/produto-digital';
 import { ProdutoVariante } from './produtos/produto-variante';
 
 
-console.log("rodando");
+// console.log("rodando");
+
+// const produto = new Produto("Regata", 20.00, "descricao regata M")
+// const produtoDigital = new ProdutoDigital("Codigo Limpo", 90.88, "Abordando as complexidades de um software")
 
 
-const produto = new Produto("Regata", 100, "descricao regata M")
+let produtoFisico: Produto[] = [];
+let produtoDigital: ProdutoDigital [] = [];
 
-const produtoDigital = new ProdutoDigital("Codigo Limpo", 90.88, "Abordando as complexidades de um software")
-const regataRosa = new Produto('Regata', 15, 'com encapsulamento')
-const subRegataRosa = new ProdutoVariante('Regata', 110, 'modelo privavera-verao', 'rosa')
+
+produtoFisico.push(new Produto("Regata", 20.00, "regata confortável simples", 0));
+produtoDigital.push (new ProdutoDigital("Livro 100 chances", 30.00, "disponível em pdf ou epub"));
+
+const produtosDisponiveis = [
+    ...produtoFisico.filter(produto => produto.estaDisponivel()),
+    ...produtoDigital.filter(produto => produto.estaDisponivel())
+];
+
 
 const display = (...produtos: ProdutoInterface[]): void => {
     const carrinhoProdutos = produtos.map((produto) => {
@@ -28,4 +38,4 @@ const display = (...produtos: ProdutoInterface[]): void => {
 
 }
 
-display(produto, produtoDigital, regataRosa, subRegataRosa)
+display( ...produtoFisico, ...produtoDigital)
